@@ -110,7 +110,7 @@ public class OperationsDetailedApi {
             specs.add(TransferSpecs.multiMatch(Transfer_.payeePartyIdType, Transfer_.payerPartyIdType, partyIdType));
         }
         if (clientCorrelationId != null) {
-            specs.add(TransferSpecs.multiMatch(Transfer_.clientCorrelationId, Transfer_.clientCorrelationId, partyIdType));
+            specs.add(TransferSpecs.multiMatch(Transfer_.clientCorrelationId, Transfer_.clientCorrelationId, clientCorrelationId));
 
         }
         if (partyId != null) {
@@ -198,9 +198,9 @@ public class OperationsDetailedApi {
         if (currency != null) {
             specs.add(TransactionRequestSpecs.match(TransactionRequest_.currency, currency));
         }
-        if (clientCorrelationId != null) {
-            specs.add(TransactionRequestSpecs.match(TransactionRequest_.clientCorrelationId, clientCorrelationId));
-        }
+//        if (clientCorrelationId != null) {
+//            specs.add(TransactionRequestSpecs.match(TransactionRequest_.clientCorrelationId, clientCorrelationId));
+//        }
         if (direction != null) {
             specs.add(TransactionRequestSpecs.match(TransactionRequest_.direction, direction));
         }
@@ -345,6 +345,10 @@ public class OperationsDetailedApi {
                 break;
             case EXTERNALID:
                 spec = TransactionRequestSpecs.in(TransactionRequest_.externalId, listOfValues);
+                break;
+
+            case CLIENTCORRELATIONID:
+                spec = TransactionRequestSpecs.in(TransactionRequest_.clientCorrelationId, listOfValues);
                 break;
         }
         return spec;
