@@ -1,11 +1,11 @@
 fineract:
   datasource:
     core:
-      host: operations-mysql
-      port: 3306
+      host: 127.0.0.1
+      port: 3307
       schema: tenants
       username: root
-      password: mysql
+      password: ethieTieCh8ahv
     common:
       protocol: jdbc
       subprotocol: mysql
@@ -17,6 +17,8 @@ token:
     refresh-validity-seconds: 43200
   client:
     access-validity-seconds: 3600
+    channel:
+      secret: "p1234"
 
 config:
   imu:
@@ -38,7 +40,7 @@ spring:
     enabled: false
 
 server:
-  port: 5000
+  port: 5001
 
 rest:
   authorization:
@@ -51,8 +53,8 @@ rest:
 logging:
   level:
     ROOT: ERROR
-    pattern:
-      console: "%clr(%d{dd-MM-yyyy HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%35.35t]){faint} %clr(%-28.28logger{28}){cyan} %clr(:){faint}%X{BUSINESS-LOG} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+#    pattern:
+#      console: "%clr(%d{dd-MM-yyyy HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%35.35t]){faint} %clr(%-28.28logger{28}){cyan} %clr(:){faint}%X{BUSINESS-LOG} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
 
 cloud:
   aws:
@@ -76,3 +78,9 @@ payment:
 
 application:
   bucket-name: paymenthub-ee-dev
+
+channel-connector:
+  url: http://localhost:5003
+  transfer-path: /channel/transfer
+
+tenants: "lion,gorilla"

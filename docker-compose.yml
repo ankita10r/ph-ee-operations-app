@@ -6,16 +6,16 @@ services:
     volumes:
       - /home/docker/data/mysql:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: ethieTieCh8ahv
     ports:
-      - "3306:3306"
+      - "3306:3307"
 
   operations-app:
     build: .
     ports:
-      - 5000:5000
+      - 5000:5001
     environment:
-      FINERACT_DATASOURCE_CORE_HOST: operations-mysql
+      FINERACT_DATASOURCE_CORE_HOST: 127.0.0.1
       SPRING_PROFILES_ACTIVE: bb
     depends_on:
-      - operations-mysql
+      - http://localhost/3307
