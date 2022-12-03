@@ -89,6 +89,13 @@ public class TenantDatabaseUpgradeService {
     }
 
     private void flywayTenants() {
+        hostname = "localhost";
+        port = 3307;
+        username = "root";
+        jdbcProtocol = "jdbc";
+        jdbcSubprotocol = "mysql";
+        driverClass = "com.mysql.jdbc.Driver";
+        password = "ethieTieCh8ahv";
         for (TenantServerConnection tenant : repository.findAll()) {
             if (tenant.isAutoUpdateEnabled()) {
                 try {

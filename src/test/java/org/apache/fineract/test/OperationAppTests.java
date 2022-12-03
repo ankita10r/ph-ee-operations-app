@@ -18,13 +18,19 @@
  */
 package org.apache.fineract.test;
 
-import org.junit.Test;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-public class TestSomething {
+import java.util.UUID;
+
+@SpringBootTest
+@ActiveProfiles("test")
+class OperationAppTests {
 
     @Test
-    public void testIt() {
-
+    void contextLoads() {
+        System.out.println(UUID.randomUUID());
     }
+
 }
