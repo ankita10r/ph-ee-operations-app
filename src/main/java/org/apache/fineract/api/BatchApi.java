@@ -244,7 +244,7 @@ public class BatchApi {
         response.setCreated_at(""+batch.getStartedAt());
         response.setModes(modes.toString());
         response.setPurpose("Unknown purpose");
-       System.out.println("Batch details generated for batchId: " + response.());
+       System.out.println("Batch details generated for batchId: " + response.getSuccessPercentage());
 
         if (batch.getCompleted().longValue() == batch.getTotalTransactions().longValue()) {
             response.setStatus("COMPLETED");
