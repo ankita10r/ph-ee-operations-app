@@ -57,22 +57,6 @@ public class BatchDTO {
         this.successPercentage = successPercentage;
     }
 
-    public String getFailPercentage() {
-        return failPercentage;
-    }
-
-    public void setFailPercentage(String failPercentage) {
-        this.failPercentage = failPercentage;
-    }
-
-    public String getSuccessPercentage() {
-        return successPercentage;
-    }
-
-    public void setSuccessPercentage(String successPercentage) {
-        this.successPercentage = successPercentage;
-    }
-
     public BatchDTO(String batch_id, String request_id, Long total, Long ongoing, Long failed, Long successful, BigDecimal totalAmount, BigDecimal successfulAmount, BigDecimal pendingAmount, BigDecimal failedAmount, String file, String notes, String created_at, String status, String modes, String purpose, String failPercentage, String successPercentage) {
         this.batch_id = batch_id;
         this.request_id = request_id;

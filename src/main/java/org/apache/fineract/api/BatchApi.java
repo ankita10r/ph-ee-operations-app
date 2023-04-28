@@ -219,8 +219,7 @@ public class BatchApi {
         completed += subBatchCompleted;
         failed += subBatchFailed;
         total += subBatchTotal;
-        batchCompletedPercent = (double) completed / total * 100;
-        batchFailedPercent = (double) failed / total * 100;
+
 
         ongoing += subBatchOngoing;
 
@@ -233,6 +232,8 @@ public class BatchApi {
         batch.setOngoing(ongoing);
         batch.setTotalTransactions(total);
         batchRepository.save(batch);
+        batchCompletedPercent = (double) batch.getCompleted() / total * 100;
+        batchFailedPercent = (double) batch.getFailed() / total * 100;
 
         BatchDTO response = new BatchDTO(batch.getBatchId(),
                 batch.getRequestId(), batch.getTotalTransactions(), batch.getOngoing(),
